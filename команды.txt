@@ -1,0 +1,34 @@
+для работы приложения используется Postman, ниже приведены команды
+
+
+Тарифы
+1.получить все тарифы
+GET-запрос http://localhost:8080/loans/tariffs
+2.получить тариф по id
+GET-запрос http://localhost:8080/loans/tariffs/{id}
+3.добавить тариф
+POST-запрос http://localhost:8080/loans/tariffs
+пример заполнения json
+{
+    "type": "New Tariff Type",
+    "interestRate": "1.5%"
+}
+4.удаление тарифа
+DELETE-запрос http://localhost:8080/loans/tariffs/{id}
+
+
+
+Заявки на кредиты
+1.создание заявки
+POST-запрос http://localhost:8080/loans/orders  (обратите внимание если не существует ни одного тарифа будет ошибка)
+пример создания json
+{
+    "userId": 21,
+    "tariffId": 1
+}
+2.получение всех заявок
+GET-запрос http://localhost:8080/loans/orders
+3.удаление заявки по id юзера и заявки
+DELETE-запрос http://localhost:8080/loans/users/{userId}/orders/{orderId}
+
+

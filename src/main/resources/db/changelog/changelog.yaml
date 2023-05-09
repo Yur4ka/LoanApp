@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: me
+      changes:
+        - createTable:
+            tableName: tariff
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: type
+                  type: varchar(255)
+              - column:
+                  name: interest_rate
+                  type: varchar(255)
+        - createTable:
+            tableName: loan_order
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: order_id
+                  type: varchar(255)
+              - column:
+                  name: user_id
+                  type: bigint
+              - column:
+                  name: tariff_id
+                  type: bigint
+              - column:
+                  name: credit_rating
+                  type: double
+              - column:
+                  name: status
+                  type: varchar(255)
+              - column:
+                  name: time_insert
+                  type: timestamp
+              - column:
+                  name: time_update
+                  type: timestamp
