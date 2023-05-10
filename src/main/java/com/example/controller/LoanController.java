@@ -63,8 +63,6 @@ public class LoanController {
         if (result.hasErrors()) {
             return ResponseEntity.badRequest().body(result.getAllErrors());
         }
-
-        // Check if tariff with the given id exists
         Long tariffId = (Long) loanOrder.getTariffId();
         if (!tariffService.existsById(tariffId)) {
             String errorMessage = String.format("Tariff with id %d does not exist", tariffId);
