@@ -81,6 +81,4 @@ public class LoanOrder {
     public Long getId() {
         return id;
     }
-
-    // constructors, getters and setters
 }
