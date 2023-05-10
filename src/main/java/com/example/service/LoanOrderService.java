@@ -35,17 +35,17 @@ public class LoanOrderService {
     public String getLoanOrderStatus(String orderId) {
         return loanOrderRepository.getLoanOrderStatus(orderId);
     }
-    @Scheduled(fixedRate = 120000) // запускать каждые 2 минуты
+    @Scheduled(fixedRate = 120000) 
     public void processInProgressOrders() {
         List<LoanOrder> inProgressOrders = loanOrderRepository.findAllByStatus("IN_PROGRESS");
         for (LoanOrder order : inProgressOrders) {
-            if (random.nextDouble() < 0.5) { // случайное решение
+            if (random.nextDouble() < 0.5) { 
                 order.setStatus("APPROVED");
             } else {
                 order.setStatus("REFUSED");
             }
             order.setTimeUpdate(new Timestamp(System.currentTimeMillis()));
-            loanOrderRepository.deleteByStatus("IN_PROGRESS"); // удаляем все заявки со статусом "IN_PROGRESS"
+            loanOrderRepository.deleteByStatus("IN_PROGRESS"); 
             loanOrderRepository.save(order);
         }
     }
