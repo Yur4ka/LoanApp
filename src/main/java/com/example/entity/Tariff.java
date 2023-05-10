@@ -34,5 +34,4 @@ public class Tariff {
     }
 
     public Long getId(){return id;}
-    // constructors, getters and setters
 }
